@@ -1,0 +1,121 @@
+@mixin translate($w, $h) {
+  -webkit-transform: translate($w, $h);
+  -moz-transform: translate($w, $h);
+  -o-transform: translate($w, $h);
+  transform: translate($w, $h);
+}
+
+@mixin transition($t){
+  -webkit-transition: all ease $t;
+  -moz-transition: all ease $t;
+  -o-transition: all ease $t;
+  transition: all ease $t;
+}
+
+@mixin scale($s) {
+  -webkit-transform: scale($s);
+  -moz-transform: scale($s);
+  -o-transform: scale($s);
+  transform: scale($s);
+}
+
+@mixin translateScale($w, $h, $s) {
+  -webkit-transform: translate($w, $h) scale($s);
+  -moz-transform: translate($w, $h) scale($s);
+  -o-transform: translate($w, $h) scale($s);
+  transform: translate($w, $h) scale($s);
+}
+
+@mixin underline($b){
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: $b;
+  background-color: $primary;
+  width: 100%;
+  height: 3px;
+}
+
+
+@mixin copyright($r, $b, $c) {
+  display: block;
+  position: absolute;
+  right: $r;
+  bottom: $b;
+  font: 400 1.4rem/21px $ff1;
+  color: $c
+}
+
+
+
+@mixin circle($cs, $c, $l, $t ) {
+  display: block;
+  content: '';
+  width: $cs;
+  height: $cs;
+  background-color: $c;
+  border-radius: ($cs)/2;
+  position: absolute;
+  left: $l;
+  top: $t;
+}
+
+@mixin circleLine($cs, $c, $l, $t ) {
+  display: block;
+  content: '';
+  width: $cs;
+  height: $cs;
+  border: 1px solid $c;
+  border-radius: ($cs)/2;
+
+  position: absolute;
+  left: $l;
+  top: $t;
+  z-index: 0;
+}
+
+
+@mixin animation($n, $du) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation-name: $n;
+  animation-duration: $du;
+  animation-iteration-count: infinite;
+}
+
+@mixin skillsCard($h, $ptb, $plr){
+  position: relative;
+  z-index: 1;
+  height: $h;
+  padding: $ptb $plr;
+  text-align: center;
+  
+  &::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border-top: 1px solid $bgC5;
+    background: linear-gradient($bgC4 30%, $bgC5);
+    opacity:0;
+    @include transition(0.3s);
+  }
+  h4, p{
+    opacity: 0.6;
+    @include transition(0.3s);
+  }
+
+  &:hover::after{
+    opacity: 1;
+  }
+  &:hover h4, 
+  &:hover p{
+    opacity: 1;
+  }
+}

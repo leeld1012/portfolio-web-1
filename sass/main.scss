@@ -1,0 +1,1746 @@
+@import "variable", "_mixin", "reset";
+
+// 반응형 추가 할 것 
+
+/* //////////// 공통사항 //////////// */
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.row {
+  margin: 0;
+}
+
+
+.title {
+  height: auto;
+  margin-bottom: 84px;
+
+  h2 {
+    height: 42px;
+    font: 900 2.5rem/42px $ff1;
+    color: $subC1;
+    margin-bottom: 10px;
+
+    &::selection {
+      background-color: $subC2;
+    }
+  }
+
+  h3 {
+    height: 42px;
+    font: 700 6rem/42px $ff1;
+    color: $titleC1;
+    margin-bottom: 42px;
+
+    &::selection {
+      background-color: $subC2;
+    }
+  }
+
+  p {
+    width: 470px;
+    font: 400 1.6rem/1.9 $ff2;
+    color: $paraC1;
+
+    &::selection {
+      background-color: $subC2;
+    }
+
+    span {
+      font-weight: 700;
+
+      &::selection {
+        color: $paraC2;
+        background-color: $primary;
+      }
+    }
+  }
+}
+
+
+/*//////////// Wrap 레이아웃 설정 ////////////*/
+#wrap {
+  width: auto;
+  height: auto;
+  margin-left: 360px;
+
+  section {
+    width: auto;
+    height: auto;
+    position: relative;
+
+    .container {
+      width: 84%;
+      padding: 105px 0 126px;
+      position: relative;
+    }
+  }
+}
+
+
+
+
+
+/* //////////// SideGnb Area Start //////////// */
+.navbar-default {
+  width: 360px;
+  height: 100vh;
+  background-color: $bgC1;
+  border: none;
+  margin: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+
+  .container-fluid {
+    height: 100%;
+    padding: 42px 17.5% 21px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    .navbar-header {
+      width: 100%;
+
+      #logo {
+        width: 73px;
+        height: 63px;
+        background: no-repeat url(../images/logo2_resume_web.svg);
+        @include transition(0.2s);
+
+        &:hover {
+          @include translate(0, -3%);
+        }
+      }
+    }
+
+    .gnb {
+      width: 100%;
+      height: auto;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      li {
+        height: 42px;
+        margin-bottom: 21px;
+
+        a {
+          display: block;
+          padding: 0;
+          width: 100%;
+          color: $menuC;
+          position: relative;
+          font: 700 2.5rem/42px $ff1;
+          @include transition(0.3s);
+
+          &::selection {
+            background-color: $subC2;
+          }
+
+          &::after {
+            @include underline(0px);
+            @include transition(0.3s);
+            opacity: 0;
+          }
+        }
+
+        &:hover {
+          a {
+            color: darken($menuC, 20);
+
+            &::after {
+              @include underline(0px);
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .menu-act {
+        color: $titleC1;
+
+        &::after {
+          @include underline(0px);
+          opacity: 1;
+        }
+      }
+    }
+
+    .info {
+      width: 100%;
+      height: auto;
+
+      ul {
+        li {
+          height: 21px;
+
+          p {
+            font: 500 1.4rem/21px $ff1;
+            color: $titleC1;
+
+            &::selection {
+              background-color: $subC2;
+            }
+
+            i {
+              width: 17px;
+              color: $primary;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .copyright {
+        font: 400 1.4rem/21px $ff1;
+        color: $menuC;
+
+        &::selection {
+          background-color: $subC2;
+        }
+      }
+    }
+  }
+}
+
+
+/*//////////// Home area start ////////////*/
+#wrap #home {
+  height: 100vh;
+  background: linear-gradient(140deg, $bgC1, $bgC2);
+  overflow: hidden;
+
+  .container {
+    padding-top: 270px;
+
+    // Circle Animation 1
+    &::before {
+      @include circle(60px, #fbf5ad, 0, 0);
+      @include animation(ani1, 15s);
+    }
+  }
+
+  .title {
+    position: relative;
+    height: 357px;
+    margin-bottom: 0;
+
+    >div {
+      height: 100%;
+    }
+
+    h2 {
+      height: auto;
+      color: $titleC1;
+      font: 700 7rem/1 $ff1;
+      position: absolute;
+      left: 0;
+      top: 10%;
+      opacity: 0;
+      z-index: 10;
+
+      &::selection {
+        background-color: $subC2;
+      }
+    }
+
+    p {
+      font: 500 1.8rem/28px $ff2;
+      margin-bottom: 42px;
+      position: absolute;
+      left: 0;
+      top: 55%;
+      opacity: 0;
+
+      &::selection {
+        background-color: $subC2;
+      }
+
+      strong {
+        &::selection {
+          background-color: $primary;
+          color: #fff;
+        }
+      }
+    }
+
+    .btn-download {
+      display: block;
+      width: 170px;
+      height: 63px;
+      font: 500 1.6rem/63px $ff2;
+      text-align: center;
+      background-color: $primary;
+      border-radius: 10px;
+      color: #fff;
+      position: absolute;
+      left: 0;
+      bottom: 0%;
+      opacity: 0;
+      z-index: 10;
+      @include transition(0.3s);
+
+      &:hover {
+        background-color: darken($primary, 5);
+      }
+    }
+
+    // Circle Animation 2
+    &::before {
+      @include circle(37px, #f6dfff, 0, 0);
+      @include animation(ani2, 8s);
+    }
+
+    // Circle Animation 3
+    &::after {
+      @include circleLine(69px, #ccd4fb, 0, 0);
+      @include animation(ani3, 10s);
+    }
+  }
+
+  .img-group {
+    position: relative;
+    opacity: 0;
+    z-index: 1;
+    @include translate(0, -50%);
+
+    img {
+      width: 110%;
+    }
+
+    .copyright {
+      display: block;
+      text-align: right;
+      font: 400 1.4rem/21px "Poppins", sans-serif;
+      color: #b7b7bd;
+    }
+  }
+
+  // Circle 바탕 좌측 상단 
+  &::before {
+    @include circle(820px, #effaff, -25%, -48%);
+
+  }
+
+  // Circle 바탕 우측
+  &::after {
+    @include circleLine(800px, #fddaed, 80%, 5%);
+    z-index: 0;
+  }
+
+
+  @keyframes ani1 {
+    0% {
+      left: 300px;
+      top: 350px;
+    }
+
+    10% {
+      left: 300px;
+      top: 350px;
+    }
+
+    50% {
+      left: 0px;
+      top: 800px;
+    }
+
+    70% {
+      left: 500px;
+      top: 550px;
+    }
+
+    100% {
+      left: 300px;
+      top: 350px;
+    }
+  }
+
+  @keyframes ani2 {
+    0% {
+      left: -100px;
+      top: 240px;
+    }
+
+    10% {
+      left: -100px;
+      top: 240px;
+    }
+
+    50% {
+      left: 330px;
+      top: 320px;
+    }
+
+    100% {
+      left: -100px;
+      top: 240px;
+    }
+  }
+
+  @keyframes ani3 {
+    0% {
+      left: 330px;
+      top: 320px;
+    }
+
+    5% {
+      left: 330px;
+      top: 320px;
+    }
+
+    50% {
+      left: -100px;
+      top: 240px
+    }
+
+    100% {
+      left: 330px;
+      top: 320px;
+    }
+  }
+
+}
+
+
+/*//////////// About area start ////////////*/
+#wrap #about {
+  height: auto;
+  background-color: $bgC2;
+
+  .info-career-keyword {
+    h4 {
+      height: 42px;
+      font: 700 1.6rem / 42px $ff2;
+      color: $primary;
+
+      &::selection {
+        background-color: $subC2;
+      }
+    }
+
+    li {
+      word-break: break-word;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      letter-spacing: -0.25px;
+
+      &::selection {
+        background-color: $subC2;
+      }
+
+      span {
+        margin-right: 5px;
+
+        &::selection {
+          background-color: $subC2;
+        }
+      }
+
+      strong {
+        &::selection {
+          background-color: $subC2;
+        }
+      }
+    }
+  }
+
+  .img-group {
+    position: relative;
+    height: 100%;
+
+    #profile-img {
+      position: absolute;
+      right: 17%;
+      top: 200px;
+    }
+
+    #hello {
+      position: absolute;
+      right: 70%;
+      top: 50px;
+      animation: hello 1s infinite alternate;
+      -webkit-transform-origin: right bottom;
+      -moz-transform-origin: right bottom;
+      -o-transform-origin: right bottom;
+      transform-origin: right bottom;
+
+      @keyframes hello {
+        from {
+          transform: rotate(5deg);
+        }
+
+        to {
+          transform: rotate(-5deg);
+        }
+      }
+    }
+
+    #airballon {
+      position: absolute;
+      right: 25%;
+      top: 0px;
+      animation: airballon 3s infinite alternate;
+
+      @keyframes airballon {
+        from {
+          @include translate(0, 0)
+        }
+
+        ;
+
+        to {
+          @include translate(0, 20%)
+        }
+
+        ;
+      }
+
+    }
+
+    #firework {
+      position: absolute;
+      right: 10%;
+      top: 200px;
+      animation: firework 3s infinite;
+
+      @keyframes firework {
+        0% {
+          @include scale(0.5);
+        }
+
+        40% {
+          @include scale(1);
+        }
+
+        60% {
+          @include scale(0.3);
+        }
+
+        80% {
+          @include scale(1.1);
+        }
+
+        100% {
+          @include scale(0.5);
+        }
+      }
+    }
+
+    #heart {
+      position: absolute;
+      right: 60%;
+      top: 440px;
+      animation: heart 2s infinite;
+
+      @keyframes heart {
+        from {
+          transform: rotate3d(0, 1, 0, -35deg);
+        }
+
+        to {
+          transform: rotate3d(0, 1, 0, 35deg);
+        }
+      }
+    }
+  }
+}
+
+
+/*//////////// Skills area start ////////////*/
+#wrap #skills {
+  background-color: $bgC4;
+  overflow: hidden;
+
+  // Circle 우측 상단
+  &::after {
+    @include circle(600px, #312f36, 80%, -30%);
+  }
+
+  // Circle 우측 하단
+  &::before {
+    @include circleLine(81px, #404337, 90%, 85%);
+  }
+
+  .container {
+
+    // Circle 좌측
+    &::before {
+      @include circleLine(300px, #404337, -23%, 40%);
+    }
+
+    .title {
+      h2 {
+        &::selection {
+          color: $subC2;
+          background-color: darken($subC1, 30);
+        }
+      }
+
+      h3 {
+        color: $titleC2;
+
+        &::selection {
+          background-color: darken($subC1, 30);
+        }
+      }
+
+      p {
+        color: $paraC2;
+
+        &::selection {
+          background-color: darken($subC1, 30);
+        }
+      }
+    }
+
+    .skill {
+      margin-bottom: 42px;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        li {
+          width: 150px;
+          margin: 0 1%;
+          @include skillsCard(198px, 31px, 0);
+          @include transition(0.2s);
+
+          &:hover {
+            @include translate(0, -3%);
+          }
+
+          img {
+            height: 60px;
+            margin-bottom: 10px;
+          }
+
+          h4 {
+            height: 21px;
+            font: 400 1.4rem/21px $ff1;
+            color: $subC2;
+            margin-bottom: 10px;
+          }
+
+          p {
+            height: 26px;
+            font: 700 3.4rem/26px $ff1;
+            color: $titleC2;
+          }
+        }
+      }
+    }
+
+    .whatido {
+      .card {
+        @include skillsCard(auto, 42px, 30px);
+        @include transition(0.2s);
+
+        &:hover {
+          @include translate(0, -3%);
+        }
+
+        img {
+          height: 65px;
+          margin-bottom: 20px;
+        }
+
+        h4 {
+          word-break: break-word;
+          height: auto;
+          font: 600 2rem/21px $ff1;
+          color: $subC2;
+          margin-bottom: 21px;
+
+        }
+
+        p {
+          word-break: keep-all;
+          height: auto;
+          font: 400 1.4rem $ff2;
+          color: $titleC2;
+        }
+      }
+    }
+  }
+}
+
+
+/*//////////// Works area start ////////////*/
+#wrap #works {
+
+  // Circle 1
+  &::before {
+    @include circleLine(388px, #d8d7ff, 60%, 100px);
+  }
+
+  // Circle 2 
+  &::after {
+    @include circleLine(187px, #ffd5d8, 76%, 60px);
+  }
+
+  .title {
+    margin-bottom: 63px;
+
+    p {
+      width: 580px;
+      span{
+        font-weight: normal;
+      }
+    }
+  }
+
+  // g-menu
+  .gmenu {
+    width: 470px;
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    margin-bottom: 63px;
+
+    li {
+      height: 21px;
+      width: auto;
+
+      a {
+        width: 100%;
+        color: $menuC;
+        position: relative;
+        font: 600 2rem/31px $ff1;
+        @include transition(0.3s);
+
+        &::after {
+          @include underline(-7px);
+          @include transition(0.3s);
+          opacity: 0;
+        }
+      }
+
+
+      &:hover {
+        a {
+          color: darken($menuC, 20);
+
+          &::after {
+            @include underline(-7px);
+            opacity: 1;
+          }
+        }
+      }
+
+    }
+
+    .gmenu-act {
+      color: $titleC1;
+
+      &::after {
+        @include underline(-7px);
+        opacity: 1;
+      }
+    }
+  }
+
+  // gallery
+  #gallery {
+    height: auto;
+
+    .card {
+      margin-bottom: 21px;
+      position: relative;
+      z-index: 1;
+      height: 420px;
+
+      border-radius: 20px;
+      background: linear-gradient($bgC7, $bgC8);
+      overflow: hidden;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        opacity: 0;
+        @include transition(0.3s);
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 42px 33px 0;
+      }
+
+      h4 {
+        height: auto;
+        font: 700 3rem/1.1 $ff1;
+        color: $titleC4;
+        margin-bottom: 5px;
+      }
+
+      p {
+        height: 42px;
+        font: 400 1.4rem/1.5 $ff1;
+        color: $paraC4;
+
+        span {
+          display: block;
+        }
+      }
+
+      h4,
+      p {
+        @include transition(0.3s);
+      }
+
+      img {
+        position: absolute;
+        left: 50%;
+        bottom: 21px;
+        @include translateScale(-50%, 0, 0.95);
+        @include transition(0.6s);
+      }
+
+      #works15 {
+        @include translateScale(-50%, 155px, 0.95);
+      }
+
+      #works12 {
+        @include translateScale(-30%, 0px, 0.95);
+      }
+
+      #works7 {
+        @include translateScale(-28%, 0px, 0.95);
+      }
+
+      #works3,
+      #works2,
+      #works1 {
+        @include translateScale(-50%, -10px, 0.95);
+      }
+
+      &:hover::after {
+        background: linear-gradient($bgC6, $bgC7);
+        opacity: 1;
+      }
+
+      &:hover h4 {
+        color: $titleC3;
+      }
+
+      &:hover p {
+        color: $paraC3;
+      }
+
+      &:hover img {
+        @include translateScale(-50%, 0, 1);
+      }
+
+      &:hover #works15 {
+        @include translateScale(-50%, 155px, 1);
+      }
+
+      &:hover #works12 {
+        @include translateScale(-30%, 0px, 1);
+      }
+
+      &:hover #works7 {
+        @include translateScale(-28%, 0px, 1);
+      }
+
+      &:hover #works3,
+      &:hover #works2,
+      &:hover #works1 {
+        @include translateScale(-50%, -10px, 1);
+      }
+    }
+  }
+}
+
+/*//////////// Contact area start ////////////*/
+#wrap #contact {
+  height: auto;
+  overflow: hidden;
+  background-color: $primary;
+
+  .container {
+    .title {
+      h2 {
+        color: $subC2;
+
+        &::selection {
+          color: $subC2;
+          background-color: darken($subC1, 30);
+        }
+      }
+
+      h3 {
+        height: auto;
+        line-height: 1;
+        color: $titleC2;
+
+        &::selection {
+          background-color: darken($subC1, 30);
+        }
+      }
+
+      p {
+        color: $paraC2;
+
+        &::selection {
+          background-color: darken($subC1, 30);
+        }
+      }
+    }
+
+    .content {
+      position: relative;
+      color: $paraC2;
+      z-index: 10;
+
+      li {
+        height: 30px;
+        width: 270px;
+        font: 400 1.4rem/30px $ff2;
+        position: relative;
+
+        &::selection {
+          background-color: darken($subC1, 30);
+        }
+
+        .fa {
+          width: 11px;
+          margin-right: 18px;
+        }
+
+        a {
+          display: inline-block;
+          color: $paraC2;
+
+          &::selection {
+            background-color: darken($subC1, 30);
+          }
+
+          &:hover {
+            color: $subC2;
+            font-weight: 500;
+          }
+        }
+
+        span {
+          color: $subC2;
+          font-family: $ff1;
+          font-weight: 600;
+          line-height: 35px;
+          @include animation(click, 0.25s);
+          animation-direction: alternate;
+          z-index: 0;
+
+          @keyframes click {
+            from {
+              left: 54%;
+              top: 0;
+            }
+
+            to {
+              left: 56%;
+              top: 0;
+            }
+          }
+
+          #pointer {
+            position: relative;
+            top: -3px;
+          }
+        }
+      }
+    }
+
+    .img-group {
+      width: 100%;
+      height: auto;
+      position: relative;
+
+      #person {
+        position: absolute;
+        height: 517px;
+        right: 0;
+        bottom: -126px;
+        z-index: 1;
+      }
+
+      #cloud1 {
+        @include animation(cloud1, 2s);
+        animation-direction: alternate;
+        z-index: 1;
+      }
+
+      #cloud2 {
+        @include animation(cloud2, 3s);
+        animation-direction: alternate;
+        z-index: 0;
+      }
+
+      .copyright {
+        height: 21px;
+        z-index: 1;
+        @include copyright(210px, -107px, $menuC);
+      }
+
+      @keyframes cloud1 {
+        from {
+          left: 45%;
+          top: -320px;
+        }
+
+        to {
+          left: 45%;
+          top: -300px;
+        }
+      }
+
+      @keyframes cloud2 {
+        from {
+          left: 80%;
+          top: -440px;
+        }
+
+        to {
+          left: 80%;
+          top: -460px;
+        }
+      }
+    }
+  }
+
+  /* Circle 좌측 */
+  &::before {
+    @include circleLine(420px, #6866ef, -10%, -20%);
+    z-index: 0;
+  }
+
+  /* Circle 우측 */
+  &::after {
+    @include circle(420px, #6866ef, 80%, 60%);
+    z-index: 0;
+  }
+}
+
+
+/*//////////// Footer area start ////////////*/
+#wrap footer {
+  height: 108px;
+  background-color: $bgC4;
+  color: darken($paraC2, 50);
+  text-align: center;
+
+  .container {
+    width: 84%;
+    padding: 42px 0;
+    position: relative;
+
+    a {
+      display: block;
+      position: absolute;
+      right: 0%;
+      top: -40px;
+      z-index: 1;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: $paraC2;
+      box-shadow: 0px 0px 8px rgba($bgC4, 0.8);
+      @include transition(0.3s);
+
+      .fa {
+        color: $primary;
+        font-size: 2.5rem;
+        line-height: 70px;
+      }
+
+      &:hover {
+        background-color: darken($primary, 5);
+        @include translate(0, -3%);
+
+        .fa {
+          color: $paraC2;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+/*//////////// Media Query 1366px area start ////////////*/
+@media screen and (max-width:1366px) {
+  #wrap #about .img-group {
+    top: 110px;
+    right: -82px;
+  }
+
+  #wrap #skills {
+
+    // Circle 우측 상단
+    &::after {
+      @include circle(600px, #312f36, 70%, -20%);
+    }
+
+    // Circle 우측 하단
+    &::before {
+      @include circleLine(71px, #404337, 85%, 90%);
+    }
+
+    .container {
+
+      // Circle 좌측
+      &::before {
+        @include circleLine(300px, #404337, -33%, 40%);
+      }
+
+      .skill ul {
+        justify-content: space-evenly;
+
+        li {
+          margin-bottom: 21px;
+        }
+      }
+    }
+  }
+
+  #wrap #works {
+
+    // Circle 1
+    &::before {
+      @include circleLine(288px, #d8d7ff, 60%, 100px);
+    }
+
+    // Circle 2 
+    &::after {
+      @include circleLine(100px, #ffd5d8, 79%, 60px);
+    }
+
+    #gallery .card h4 {
+      font-size: 2rem;
+    }
+  }
+
+  #wrap #contact .container .img-group #person {
+    right: -86px;
+  }
+}
+
+/*//////////// Media Query 1228px area start ////////////*/
+@media screen and (max-width:1228px){
+  #wrap #home .title h2{
+    font-size: 6.5rem;
+  }
+}
+
+
+/*//////////// Media Query 1199px MD area start ////////////*/
+@media screen and (max-width:1199px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .title {
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 5.5rem;
+    }
+  }
+
+  .navbar-default {
+    width: 270px;
+
+    .container-fluid {
+      padding: 42px 15% 21px;
+    }
+  }
+
+  #wrap {
+    margin-left: 270px;
+
+    .container {
+      width: 662px;
+    }
+  }
+
+  #wrap #home {
+    .container {
+      padding-top: 25%;
+    }
+
+    .title {
+      h2 {
+        font-size: 6rem;
+      }
+    }
+
+    // Circle 바탕 좌측 상단 
+    &::before {
+      @include circle(650px, #effaff, -40%, -48%);
+    }
+
+    // Circle 바탕 우측
+    &::after {
+      @include circleLine(650px, #fddaed, 70%, 5%);
+      z-index: 0;
+    }
+  }
+
+  #wrap #about {
+    .title {
+      margin-bottom: 44px;
+    }
+
+    .info-career-keyword {
+
+      .info li,
+      .keyword li {
+        display: inline;
+        margin-right: 5px;
+      }
+    }
+
+    .img-group {
+      top: 0;
+      right: 0;
+
+      #profile-img {
+        position: absolute;
+        right: 0%;
+        top: -229px;
+        width: 36%;
+      }
+
+      #hello {
+        right: 36%;
+        top: -237px;
+        width: 15%;
+      }
+
+      #airballon {
+        right: 3%;
+        top: -408px;
+        width: 14%;
+      }
+
+      #firework {
+        right: -4%;
+        top: -236px;
+        width: 14%;
+      }
+
+      #heart {
+        right: 27%;
+        top: -54px;
+        width: 11%;
+      }
+    }
+  }
+
+  #wrap #skills {
+    .container {
+      .skill {
+        margin-bottom: 15px;
+
+        ul {
+          justify-content: space-between;
+
+          li {
+            margin-bottom: 25px;
+            margin-bottom: 15px;
+
+            p {
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+
+      .whatido .card {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  #wrap #works {
+
+    // Circle 1
+    &::before {
+      @include circleLine(288px, #d8d7ff, 60%, 100px);
+    }
+
+    // Circle 2 
+    &::after {
+      @include circleLine(100px, #ffd5d8, 79%, 60px);
+    }
+
+    #gallery .card {
+      h4 {
+        font-size: 3rem;
+      }
+
+      img {
+        @include translateScale(-50%, 0, 0.85);
+      }
+
+      #works3,
+      #works2,
+      #works1 {
+        @include translateScale(-50%, -10px, 0.85);
+      }
+
+      &:hover img {
+        @include translateScale(-50%, 0, 0.9);
+      }
+
+      &:hover #works3,
+      &:hover #works2,
+      &:hover #works1 {
+        @include translateScale(-50%, -10px, 0.9);
+      }
+    }
+  }
+
+  #wrap #contact {
+
+    /* Circle 좌측 */
+    &::before {
+      @include circleLine(420px, #6866ef, -10%, -20%);
+    }
+
+    /* Circle 우측 */
+    &::after {
+      @include circle(420px, #6866ef, 80%, 60%);
+    }
+
+    .container .img-group {
+      .copyright {
+        right: 95px;
+      }
+
+      #person {
+        @include translateScale(12%, 15%, 0.7);
+      }
+
+      #cloud1 {
+        @include translateScale(-10%, 110%, 0.7);
+      }
+
+      #cloud2 {
+        @include translateScale(-20%, 30%, 0.7);
+      }
+    }
+  }
+}
+
+/*//////////// Media Query 1016px area start ////////////*/
+@media screen and (max-width:1016px) {
+  #wrap #home .title h2{
+    font-size: 5.5rem;
+  }
+}
+
+/*//////////// Media Query 991px SM area start ////////////*/
+@media screen and (max-width: 991px) {
+
+  .title {
+    h3 {
+      font-size: 4rem;
+    }
+  }
+
+  .navbar-default {
+    width: 140px;
+
+    .container-fluid {
+      padding: 42px 20% 21px;
+      align-content: stretch;
+
+      .navbar-header #logo {
+        width: 70%;
+      }
+
+      .gnb li a {
+        font-size: 2rem;
+      }
+
+      .info {
+        display: none;
+      }
+    }
+  }
+
+  #wrap {
+    margin-left: 140px;
+  }
+
+  #wrap #home {
+    .title {
+      height: 300px;
+
+      h2 {
+        font-size: 5rem;
+      }
+
+      p {
+        top: 51%;
+      }
+    }
+
+    .img-group {
+      transform: translate(0, -8%);
+    }
+  }
+
+  #wrap #about {
+    .img-group {
+      @include scale(0.9);
+      top: 50px;
+      right: -56px;
+
+      #hello {
+        right: 30%;
+        top: -300px;
+      }
+
+      #heart {
+        right: 27%;
+        top: -90px;
+        width: 11%;
+      }
+    }
+  }
+
+  #wrap #skills .container .skill ul li {
+    height: auto;
+
+    p {
+      font-size: 2.5rem;
+    }
+  }
+
+  #wrap #works {
+    .title p {
+      width: 100%;
+    }
+
+    .gmenu {
+      width: 430px;
+
+      li a {
+        font-size: 1.8rem;
+      }
+    }
+
+    #gallery .card {
+      height: 320px;
+
+      h4 {
+        font-size: 2.3rem;
+      }
+
+      img {
+        @include translateScale(-50%, 20%, 0.65);
+      }
+
+      #works15 {
+        @include translateScale(-50%, 45%, 0.65);
+      }
+
+      #works12 {
+        @include translateScale(-37%, 20%, 0.65);
+      }
+
+      #works11 {
+        @include translateScale(-50%, 20%, 0.6);
+      }
+
+      #works7 {
+        @include translateScale(-48%, 20%, 0.55);
+      }
+
+      #works3,
+      #works2,
+      #works1 {
+        @include translateScale(-50%, 12%, 0.6);
+      }
+
+      &:hover img {
+        @include translateScale(-50%, 20%, 0.7);
+      }
+
+      &:hover #works15 {
+        @include translateScale(-50%, 45%, 0.7);
+      }
+
+      &:hover #works12 {
+        @include translateScale(-37%, 20%, 0.7);
+      }
+
+      &:hover #works11 {
+        @include translateScale(-50%, 20%, 0.65);
+      }
+
+      &:hover #works7 {
+        @include translateScale(-48%, 20%, 0.6);
+      }
+
+      &:hover #works3,
+      &:hover #works2,
+      &:hover #works1 {
+        @include translateScale(-50%, 12%, 0.65);
+      }
+    }
+  }
+
+  #wrap footer .container p {
+    font-size: 1.4rem;
+  }
+
+}
+
+/*//////////// Media Query 767px XS area start ////////////*/
+@media screen and (max-width: 767px) {
+  #wrap {
+    width: 100%;
+    margin-left: 0;
+
+    section .container {
+      width: 100%;
+      margin: 0;
+      padding: 105px 16px 126px;
+    }
+  }
+
+  .title {
+    position: relative;
+    z-index: 10;
+    p {
+      font-size: 1.5rem;
+      width: 100%;
+    }
+  }
+
+
+  .navbar-default {
+    width: 100%;
+    height: 60px;
+
+    .container-fluid {
+      display: block;
+      padding: 0;
+
+      .navbar-header {
+        height: 100%;
+        margin: 0;
+        padding: 12px 5%;
+
+        #logo {
+          width: 40px;
+          height: 35px;
+        }
+
+        .navbar-toggle {
+          margin: 0;
+        }
+      }
+
+      .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+
+        .nav {
+          margin: 10px 0 0;
+
+          li {
+            height: 50;
+          }
+        }
+      }
+
+    }
+  }
+
+
+
+  #wrap #home {
+    .title {
+      padding: 0 20px;
+      height: 410px;
+
+      h2 {
+        height: auto;
+        font-size: 5.5rem;
+        line-height: 1.1;
+      }
+
+      p {
+        top: 62%;
+        font-size: 1.5rem;
+      }
+    }
+
+    .img-group {
+      @include translate(0, 10%);
+
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+
+  #wrap #about {
+    .info-career-keyword li {
+      margin-bottom: 7px;
+
+      span {
+        display: block;
+      }
+    }
+
+    .img-group {
+      display: none;
+    }
+  }
+
+  #wrap #skills {
+
+    // Circle 우측 상단
+    &::after {
+      @include circle(400px, #312f36, 53%, -7%);
+      z-index: 0;
+    }
+
+    // Circle 우측 하단
+    &::before {
+      @include circleLine(71px, #404337, 75%, 95%);
+    }
+
+    .container .whatido .card {
+      margin-bottom: 21px;
+    }
+  }
+
+  #wrap #works {
+    overflow-x: hidden;
+    .container .title{
+      p{
+        span{
+          display: block;
+        }
+      }
+    }
+    .gmenu{
+      width: 70%;
+      li a{
+        font-size: 1.6rem;
+      }
+    }
+    #gallery .card{
+      height: 285px;
+      p{
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  #wrap #contact .container .img-group{
+    display: none;
+  }
+}
+/*//////////// Media Query 480px area start ////////////*/
+@media screen and (max-width: 480px){
+  #wrap #works .gmenu{
+    width: 100%;
+    flex-wrap: wrap;
+    li{
+      
+      &:first-child{
+        width: 100%;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+
+/*//////////// Media Query 320px area start ////////////*/
+@media screen and (max-width: 320px) {
+  #wrap #home .title h2{
+    font-size: 4rem;
+  }
+  #wrap #home .img-group {
+    display: none;
+  }
+  #wrap #home .title p{
+    word-break: keep-all;
+    top: 51%;
+  }
+  .title h3{
+    font-size: 3.3rem;
+  }
+  #wrap #about .info-career-keyword li b{
+    display: block;
+  }
+  #wrap #about .info-career-keyword .info li{
+    &:nth-child(n+4){
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  #wrap #skills .container .skill ul li{
+    width: 120px;
+  }
+
+  #wrap #works #gallery .card h4,
+  #wrap #works #gallery .card p
+  {
+    position: relative;
+    z-index: 10;
+  }
+  
+}
