@@ -1070,6 +1070,10 @@ a:focus {
   transition: all ease 0.6s;
 }
 
+#wrap #works #gallery .card #works16 {
+  transform: translate(-50%, 11%) scale(0.95);
+}
+
 #wrap #works #gallery .card #works15 {
   transform: translate(-50%, 155px) scale(0.95);
 }
@@ -1105,6 +1109,10 @@ a:focus {
   transform: translate(-50%, 0) scale(1);
 }
 
+#wrap #works #gallery .card:hover #works16 {
+  transform: translate(-50%, 11%) scale(1);
+}
+
 #wrap #works #gallery .card:hover #works15 {
   transform: translate(-50%, 155px) scale(1);
 }
@@ -1121,6 +1129,28 @@ a:focus {
 #wrap #works #gallery .card:hover #works2,
 #wrap #works #gallery .card:hover #works1 {
   transform: translate(-50%, -10px) scale(1);
+}
+
+#wrap #works #gallery .detail-btn {
+  display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #5856e9;
+  color: #ddd;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 65px;
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  z-index: 10;
+  transition: all ease 0.3s;
+}
+
+#wrap #works #gallery .detail-btn:hover {
+  background-color: #423fe6;
+  color: #fff;
 }
 
 /*//////////// Contact area start ////////////*/
@@ -1723,6 +1753,9 @@ a:focus {
   #wrap #works #gallery .card img {
     transform: translate(-50%, 20%) scale(0.65);
   }
+  #wrap #works #gallery .card #works16 {
+    transform: translate(-50%, 27%) scale(0.65);
+  }
   #wrap #works #gallery .card #works15 {
     transform: translate(-50%, 45%) scale(0.65);
   }
@@ -1742,6 +1775,9 @@ a:focus {
   }
   #wrap #works #gallery .card:hover img {
     transform: translate(-50%, 20%) scale(0.7);
+  }
+  #wrap #works #gallery .card:hover #works16 {
+    transform: translate(-50%, 27%) scale(0.7);
   }
   #wrap #works #gallery .card:hover #works15 {
     transform: translate(-50%, 45%) scale(0.7);
